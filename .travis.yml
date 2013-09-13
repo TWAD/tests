@@ -6,4 +6,4 @@ script: vendor/bin/phpunit
 email:
     recipients:
       - anthonydeniaud@gmail.com
-    on_success: always
+    #on_success: always #doc: http://about.travis-ci.org/docs/user/notifications/
