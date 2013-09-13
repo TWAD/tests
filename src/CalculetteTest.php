@@ -15,7 +15,7 @@ class CalculetteTest extends \PHPUnit_Framework_TestCase
     public function testAdd()
     {
         $calc = new Calculette();
-        $result = $calc->add(40, 12);
+        $result = $calc->add(30, 22);
 
         // vérifie que votre classe a correctement calculé!
         $this->assertEquals(42, $result);
