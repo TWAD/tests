@@ -8,6 +8,6 @@ script: vendor/bin/phpunit
 notifications:
   email:
   recipients:
-      - anthonydeniaud@gmail.com
+  -anthonydeniaud@gmail.com
     on_success: always
     on_failure: always
