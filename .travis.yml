@@ -9,4 +9,4 @@ php:
 #    - mv ../CakePHP-Upload 
 
 script:
-    - vendor/phpunit/phpunit/phpunit.php
+    - $ vendor/phpunit/phpunit/phpunit.php
