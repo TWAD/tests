@@ -1,6 +1,3 @@
-<?php
-
-$app=require 'app.php';
-
-
+<?php 
+$app = include "app.php" ;
 $app->run();

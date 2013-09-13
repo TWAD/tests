@@ -1,15 +1,15 @@
 <?php
 require 'vendor/autoload.php';
 
-$app=new \Silex\Application();
+$app=new \Silex\Application(array('debug'=>true));
 
 
 $app->get('',function(){
 	return 'welcome';	
 });
 
-$app->get('hello/{name}',function($name){
-	return 'hello '.$name;
+$app->get('/hello/{name}',function($name){
+	return 'hello ';//.$name;
 });
 
 

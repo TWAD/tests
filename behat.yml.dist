@@ -1,0 +1,15 @@
+#fichier d'exemple de configuration de behat
+
+default:
+  extensions:
+    Behat\Symfony2Extension\Extension: ~
+       #mink_driver: true
+    Behat\MinkExtension\Extension:
+      base_url: http://localhost/TU/index.php
+      default_session: sahi
+      #browser_name: firefox
+
+      sahi: ~
+      #selenium2: ~                    
+        #wd_host: http://192.168.14.225:4444/wd/hub
+        #capabilities: { "browser": "firefox", "version": "23"} 
