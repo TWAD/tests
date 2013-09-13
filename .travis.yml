@@ -8,5 +8,5 @@ php:
 #    - git clone --depth 1 git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp
 #    - mv ../CakePHP-Upload 
 
-script:
-    - $ vendor/phpunit/phpunit/phpunit.php
+before_script: php vendor/vendors.php
+script: php vendor/phpunit/phpunit/phpunit.php
