@@ -5,4 +5,5 @@ class Calculette{
 		return $nb1+$nb2;	
 	}
 
+
 }

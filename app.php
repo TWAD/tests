@@ -18,5 +18,4 @@ $app->get('calcul/{nb1}/{nb2}',function($nb1,$nb2){
 	return $nb1.' + '.$nb2.' = '.$calculette->add($nb1,$nb2);
 });
 
-
-$app->run();
+return $app;

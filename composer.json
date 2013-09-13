@@ -3,7 +3,9 @@
         "psr-0": {"": "src/"}
     },
     "require": {
-        "silex/silex": "~1.0",
-		  "phpunit/phpunit": "3.7.*"
+        	"silex/silex": "~1.0",
+		  	"phpunit/phpunit": "3.7.*",
+			"symfony/browser-kit": ">=2.3,<2.4-dev",
+        	"symfony/css-selector":">=2.3"
     }
 }

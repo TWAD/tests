@@ -14,4 +14,3 @@ app/config/parameters.yml
 
 # temporary files
 *~
-/nbproject/private/

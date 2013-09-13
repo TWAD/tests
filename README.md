@@ -9,7 +9,7 @@ installation
 
 installer les librairies externes: ''' composer install '''
 
-dans le navigateur appeler http://localhost/tests/app.php/hello/word
+dans le navigateur appeler http://localhost/tests/index.php/hello/word
 
 doc:
 http://silex.sensiolabs.org/
@@ -23,9 +23,12 @@ faire un test unitaire sur la méthode add de la classe calculette
 tester son intégration avec Travis
 
 
+
 faire un test fonctionnel sur l'url "hello/word"
 
 tester son intégration avec Travis
+
+
 
 
 intégrer behat et sahi
