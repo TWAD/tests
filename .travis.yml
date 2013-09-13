@@ -8,5 +8,7 @@ php:
 #    - git clone --depth 1 git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp
 #    - mv ../CakePHP-Upload 
 
-before_script: php vendor/vendors.php
+before_script:
+    -/home/travis/.phpenv/versions/5.3.26/bin/composer.phar self-update
+    -php vendor/vendors.php
 script: php vendor/phpunit/phpunit/phpunit.php
