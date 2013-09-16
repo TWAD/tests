@@ -4,6 +4,7 @@ php:
 before_install:
 install:
 before_script:
+        - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php
         - composer install --dev --prefer-source
         - chmod +x bin/behat
         - ls -l
