@@ -5,6 +5,7 @@ Feature: testing link a row in Restaurant to an itinerary
 
 Background:
         Given I am on "/"
+        And I should see "welcome"
         
 
 @test
