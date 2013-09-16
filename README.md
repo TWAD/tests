@@ -34,3 +34,14 @@ tester son intégration avec Travis
 intégrer behat et sahi
 
 tester son intégration avec Travis
+
+
+-------------------------------------------------
+générer une archive du vendor sans les répertoires .git
+composer update
+tar cfvz  vendor.tar.gz vendor --exclude-vcs
+mv vendor vendor_bakup
+tar xfvz vendor.tar.gz
+rm vendor_bakup
+rm vendor.tar.gz
+
