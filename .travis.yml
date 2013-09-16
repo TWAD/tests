@@ -2,16 +2,15 @@ language: php
 php:
     - 5.4
 before_install:
-install:
-before_script:
         - sudo apt-get update
         - sudo apt-get install apache2
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
-        - cd ../
-        - ls -l
-        - cd /
-        - ls -l
+        - cd /var/www
+        - mkdir test
+        - cd test
+install:
+before_script:
 #script: vendor/bin/phpunit
 script: bin/behat Tests/Goutte/test.feature
 email:
