@@ -1,6 +1,6 @@
 default:
     extensions:
         Behat\MinkExtension\Extension:
-            base_url: "http://www.ad-soft.fr/"
+            base_url: "https://demo.concierge-organizer.net/"
             goutte: ~
             #selenium2: ~

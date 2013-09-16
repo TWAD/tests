@@ -10,5 +10,4 @@ Background:
 
 @test
 Scenario:
-        Given I should see "This is the server's temporary default web page."
-        And I should see "The web server software is running but no content has been added yet."
+        Given I should see "login"
