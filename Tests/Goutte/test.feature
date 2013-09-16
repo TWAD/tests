@@ -4,7 +4,7 @@ Feature: testing link a row in Restaurant to an itinerary
     I need to be able to find an itinerary and link to it
 
 Background:
-        Given I am on "/"
+        #Given I am on "/"
 
 @test
 Scenario: 
