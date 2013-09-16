@@ -6,6 +6,7 @@ before_install:
         - sudo apt-get install apache2
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
+        - chmod 777 /var/www
         - cd /var/www
         - mkdir test
         - cd test
