@@ -8,7 +8,7 @@ before_install:
 #        - chmod +x bin/behat
         - sudo chmod 777 /var/www
         - cd /var/www
-        - ls -l
+        - sudo mkdir test
         - cd test
 install:
 before_script:
