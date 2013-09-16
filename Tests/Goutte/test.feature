@@ -4,11 +4,11 @@ Feature: testing link a row in Restaurant to an itinerary
     I need to be able to find an itinerary and link to it
 
 Background:
-        #Given I am on ""
-        Given I should see "It works!"
+        Given I am on "/"
+        And I should see "It works"
+        
 
 @test
 Scenario:
-        Given I go to "calcul/1/2"
-        And I am on "calcul/1/2"
-        And I should see "3"
+        Given I should see "This is the server's temporary default web page."
+        And I should see "The web server software is running but no content has been added yet."
