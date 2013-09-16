@@ -5,7 +5,7 @@ default:
     Behat\Symfony2Extension\Extension: ~
        #mink_driver: true
     Behat\MinkExtension\Extension:
-      base_url: http://localhost/TU/index.php
+      base_url: /%hostname%/TU/index.php/
       default_session: sahi
       #browser_name: firefox
 

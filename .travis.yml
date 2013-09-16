@@ -2,8 +2,8 @@ language: php
 php:
     - 5.4
 before_install:
-#        - sudo apt-get update
-#        - sudo apt-get install apache2
+        - sudo apt-get update
+        - sudo apt-get install apache2
 #        - composer install --dev --prefer-source
 #        - chmod +x bin/behat
         - chmod 777 /var/www
