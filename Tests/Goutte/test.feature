@@ -10,4 +10,4 @@ Background:
 Scenario: 
         Given I go to "calcul/1/2"
         And I am on "calcul/1/2"
-        And I should see "4"
+        And I should see "3"
