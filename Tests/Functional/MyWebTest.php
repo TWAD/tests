@@ -7,6 +7,7 @@ class MyWebTest extends Silex\WebTestCase {
     }
         
     public function testWelcomePage() {
+        //echo ">>>HELLO<<<";
         
         $client = $this->createClient();
         

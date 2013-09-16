@@ -12,8 +12,9 @@
 >
     <testsuites>
         <testsuite name="YourApp Test Suite">
-            <directory>Tests/Unitaires</directory>
-			<directory>Tests/Functional</directory>
+            <directory>Tests/Goutte</directory>
+            <!--<directory>Tests/Unitaires</directory>
+            <directory>Tests/Functional</directory>-->
         </testsuite>
     </testsuites>
 </phpunit>
