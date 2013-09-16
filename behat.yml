@@ -1,6 +1,6 @@
 default:
     extensions:
         Behat\MinkExtension\Extension:
-            base_url: "https://demo.concierge-organizer.net/"
+            base_url: "http://localhost/TU/index.php/"
             goutte: ~
             #selenium2: ~
