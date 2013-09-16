@@ -8,6 +8,9 @@ before_script:
         - sudo apt-get install apache2
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
+        - cd ../
+        - ls -l
+        - cd /
         - ls -l
 #script: vendor/bin/phpunit
 script: bin/behat Tests/Goutte/test.feature

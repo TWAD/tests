@@ -5,10 +5,9 @@ Feature: testing link a row in Restaurant to an itinerary
 
 Background:
         Given I am on "/"
-        And I should see "welcome"
         
 
 @test
 Scenario:
         Given I go to "calcul/2/1"
-        Given I should see "3"
+        And I should see "3"
