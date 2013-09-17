@@ -11,7 +11,8 @@ before_install:
         - sudo chmod 777 /var/www
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
-        - ls -l
+        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+#        - ls -l
 #        - echo $(wget localhost -q -O -)
 #        - echo $(wget localhost/TEST/index.php -q -O -)
 
