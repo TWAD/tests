@@ -5,14 +5,15 @@ before_install:
         - sudo apt-get update
         - sudo apt-get install apache2
         - sudo apt-get install libapache2-mod-php5
+        - sudo aptitude install sun-java6-jre sun-java6-plugin 
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
         - ls -l
-        - echo $(wget localhost -q -O -)
-        - echo $(wget localhost/TEST/index.php -q -O -)
+#        - echo $(wget localhost -q -O -)
+#        - echo $(wget localhost/TEST/index.php -q -O -)
 
 #        - sudo apt-get update > /dev/null
 #        - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
