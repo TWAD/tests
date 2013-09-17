@@ -27,7 +27,7 @@ before_install:
 install:
 before_script:
         - ls -l
-        - java man
+        - man java
         - ((java - jar "selenium-server-standalone-2.35.0.jar" &)&)
 #        - screen java -jar "selenium-server-standalone-2.35.0.jar"
 #        - cd /var/www/TEST
