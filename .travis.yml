@@ -26,10 +26,10 @@ before_install:
 #        - sudo /etc/init.d/apache2 restart
 install:
 before_script:
-        - ls -l
-        - man java
-        - ((java - jar "selenium-server-standalone-2.35.0.jar" &)&)
-#        - screen java -jar "selenium-server-standalone-2.35.0.jar"
+#        - ls -l
+#        - man java
+#        - ((java - jar "selenium-server-standalone-2.35.0.jar" &)&)
+        - java -jar "selenium-server-standalone-2.35.0.jar" &
 #        - cd /var/www/TEST
 #        - cat behat.yml
 #script: vendor/bin/phpunit
