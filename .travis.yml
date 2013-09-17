@@ -7,8 +7,8 @@ before_install:
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
-        -cd ../
-        - ls -l		
+        - cd ../
+        - ls -l
         - cd /var/www
         - sudo mkdir test
         - cd test
