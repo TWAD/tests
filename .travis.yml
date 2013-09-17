@@ -11,7 +11,7 @@ before_install:
         - sudo mkdir test
         - cd test
         - ls -l
-        - cd /
+        - cd /home
         - ls -l
 install:
 after_install:
