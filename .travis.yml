@@ -9,7 +9,7 @@ before_install:
         - sudo chmod 777 /var/www
 #        - cd /home
 #        - ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
-        - cp /home/travis/build/TWAD/tests /var/www/TEST
+        - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
         - ls -l
 install:
