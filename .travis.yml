@@ -4,6 +4,7 @@ php:
 before_install:
         - sudo apt-get update
         - sudo apt-get install apache2
+        - sudo apt-get install libapache2-mod-php5
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
