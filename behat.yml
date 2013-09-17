@@ -3,6 +3,7 @@ default:
         Behat\MinkExtension\Extension:
             base_url: http://localhost/TEST/index.php/
         #goutte: ~
+            default_session: selenium2
             selenium2:                    
             #wd_host: http://192.168.14.225:4444/wd/hub
                 capabilities: { "browser": "firefox", "version": "19"}
