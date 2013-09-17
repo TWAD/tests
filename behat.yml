@@ -1,9 +1,22 @@
+# default:
+    # extensions:
+        # Behat\MinkExtension\Extension:
+            # base_url: http://localhost/TEST/index.php/
+        
+            # default_session: selenium2
+            # selenium2:                    
+                # capabilities: { "browser": "firefox", "version": "19"}
+
 default:
-    extensions:
-        Behat\MinkExtension\Extension:
-            base_url: http://localhost/TEST/index.php/
-        #goutte: ~
-            default_session: selenium2
-            selenium2:                    
-            #wd_host: http://192.168.14.225:4444/wd/hub
-                capabilities: { "browser": "firefox", "version": "19"}
+  extensions:
+    Behat\Symfony2Extension\Extension: ~
+#       mink_driver: true
+    Behat\MinkExtension\Extension:
+      base_url: 'http://localhost:8888/CO_2_3/web/'
+#      base_url: 'http://192.168.14.225/demo_master/web/'
+      default_session: selenium2
+      browser_name: 'firefox'
+      selenium2: ~
+#        wd_host: 127.0.0.1:4444/wd/hub
+#        capabilities: { "browser": "firefox", "version": "23"}
+#      sahi: ~
