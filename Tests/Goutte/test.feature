@@ -20,3 +20,8 @@ Scenario:
 Scenario:
         Given I go to "hello/world"
         And I should see "hello world"
+		
+@test_4
+Scenario:
+        Given I go to "hello/You"
+        And I should see "hello world"
