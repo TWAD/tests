@@ -7,15 +7,22 @@ before_install:
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
-#        - cd /home
-#        - ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
         - ls -l
+        - echo $(wget localhost -q -O -)
+
+#        - sudo apt-get update > /dev/null
+#        - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+#        - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
+#        - sudo /etc/init.d/apache2 restart
+#        - sudo sed -i -e "/DocumentRoot/i\ServerName knpu_qa.l" /etc/apache2/sites-available/default
+#        - echo "127.0.0.1 knpu_qa.l" | sudo tee -a /etc/hosts
+#        - sudo /etc/init.d/apache2 restart
 install:
 before_script:
-        - cd /var/www/TEST
-        - cat behat.yml
+#        - cd /var/www/TEST
+#        - cat behat.yml
 #script: vendor/bin/phpunit
 script: bin/behat Tests/Goutte/test.feature
 email:
