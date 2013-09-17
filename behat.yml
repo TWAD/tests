@@ -9,10 +9,10 @@
 
 default:
   extensions:
-    Behat\Symfony2Extension\Extension: ~
+    #Behat\Symfony2Extension\Extension: ~
 #       mink_driver: true
     Behat\MinkExtension\Extension:
-      base_url: 'http://localhost:8888/CO_2_3/web/'
+      base_url: 'http://localhost/TU/index.php'
 #      base_url: 'http://192.168.14.225/demo_master/web/'
       default_session: selenium2
       browser_name: 'firefox'
