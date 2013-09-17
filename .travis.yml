@@ -3,9 +3,10 @@ php:
     - 5.4
 before_install:
         - sudo apt-get update
-        - sudo apt-get install apache2
-        - sudo apt-get install libapache2-mod-php5
-        - sudo apt-get install firefox-mozilla-build
+#        - wget
+#        - sudo apt-get install apache2
+#        - sudo apt-get install libapache2-mod-php5
+        - sudo apt-get install firefox
         - firefox -v
 #        - sudo apt-get install sun-java6-jre oracle-java7-installer 7u40-0~webupd8~0
 #        - composer install --dev --prefer-source
