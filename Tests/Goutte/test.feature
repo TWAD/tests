@@ -6,7 +6,12 @@ Feature: testing link a row in Restaurant to an itinerary
 Background:
         Given I am on "/"
         
-@test
+@test_1
 Scenario:
         Given I go to "calcul/2/1"
         And I should see "3"
+		
+@test_2
+Scenario:
+        Given I go to "calcul/2/7"
+        And I should see "9"
