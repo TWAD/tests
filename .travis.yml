@@ -10,6 +10,9 @@ before_install:
         - cd /var/www
         - sudo mkdir test
         - cd test
+        - ls -l
+        - cd /
+        - ls -l
 install:
 before_script:
 #script: vendor/bin/phpunit
