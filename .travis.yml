@@ -3,6 +3,10 @@ php:
     - 5.4
 before_install:
         - sudo apt-get update
+        - download sahi_installer jar
+        - open a console
+        - open java -jar path/to/sahi_installer
+#
         - sudo apt-get install apache2
         - sudo apt-get install libapache2-mod-php5
         - sudo apt-get install firefox
@@ -14,8 +18,8 @@ before_install:
         - cd /var/www/TEST
         - sh -e /etc/init.d/xvfb start
         - export DISPLAY=:99.0
-        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
-        - java -jar "selenium-server-standalone-2.35.0.jar" &
+#        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+#        - java -jar "selenium-server-standalone-2.35.0.jar" &
         - sleep 5
 # befor_script:
         # - "sh -e /etc/init.d/xvfb start"

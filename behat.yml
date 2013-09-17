@@ -14,9 +14,11 @@ default:
     Behat\MinkExtension\Extension:
       base_url: 'http://localhost/TEST/index.php'
 #      base_url: 'http://192.168.14.225/demo_master/web/'
-      default_session: selenium2
+#      default_session: selenium2
+      default_session: sahi
       browser_name: 'firefox'
-      selenium2: ~
+#      selenium2: ~
+      sahi: ~
 #        wd_host: 127.0.0.1:4444/wd/hub
 #        capabilities: { "browser": "firefox", "version": "23"}
 #      sahi: ~
