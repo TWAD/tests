@@ -7,14 +7,12 @@ before_install:
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
-        - cd /home
-        - ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+#        - cd /home
+#        - ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+        - cp /home/travis/build/TWAD/tests /var/www/TEST
+        - cd /var/www/TEST
+        - ls -l
 install:
-after_install:
-        - cd /
-        - ls -l
-        - cd home
-        - ls -l
 before_script:
 #script: vendor/bin/phpunit
 script: bin/behat Tests/Goutte/test.feature
