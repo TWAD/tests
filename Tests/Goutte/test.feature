@@ -15,3 +15,8 @@ Scenario:
 Scenario:
         Given I go to "calcul/2/7"
         And I should see "9"
+
+@test_3
+Scenario:
+        Given I go to "hello/world"
+        And I should see "hello world"

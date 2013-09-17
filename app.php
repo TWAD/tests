@@ -9,7 +9,7 @@ $app->get('',function(){
 });
 
 $app->get('/hello/{name}',function($name){
-	return 'hello ';//.$name;
+	return 'hello '.$name;
 });
 
 
