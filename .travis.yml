@@ -5,7 +5,7 @@ before_install:
         - sudo apt-get update
         - sudo apt-get install apache2
         - sudo apt-get install libapache2-mod-php5
-        - sudo aptitude install sun-java6-jre sun-java6-plugin 
+        - sudo apt-get install sun-java6-jre sun-java6-plugin 
 #        - composer install --dev --prefer-source
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
