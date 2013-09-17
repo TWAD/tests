@@ -12,8 +12,16 @@ before_install:
         - sudo chmod 777 /var/www
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
+        - "sh -e /etc/init.d/xvfb start"
+        - "export DISPLAY=:99.0"
         - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
         - java -jar "selenium-server-standalone-2.35.0.jar" &
+# befor_script:
+        # - "sh -e /etc/init.d/xvfb start"
+        # - "export DISPLAY=:99.0"
+        # - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
+        # - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
+        # - sleep 5
 script: 
         - bin/behat Tests/Goutte/test.feature &
 #        - vendor/bin/phpunit
