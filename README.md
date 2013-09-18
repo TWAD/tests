@@ -42,6 +42,6 @@ composer update
 tar cfvz  vendor.tar.gz vendor --exclude-vcs
 mv vendor vendor_bakup
 tar xfvz vendor.tar.gz
-rm vendor_bakup
+rm -r vendor_bakup
 rm vendor.tar.gz
 
