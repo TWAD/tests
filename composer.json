@@ -10,13 +10,12 @@
         "behat/mink":               "1.4.*",
         "behat/behat":  "2.4.*@stable",
         "behat/mink":   "1.4.*@stable",
-		"behat/mink-sahi-driver":  "1.0.*",
+		  "behat/mink-sahi-driver":  "1.0.*",
         "behat/mink-goutte-driver": "1.0.*",
         "behat/symfony2-extension":      "*",
         "behat/mink-extension":          "*",
         "behat/mink-browserkit-driver":  "*",
-        "behat/mink-selenium2-driver":   "*",
-        "behat/behat": "2.4.*@stable"
+        "behat/mink-selenium2-driver":   "*"
     },
     "minimum-stability": "dev",
     "config": {
