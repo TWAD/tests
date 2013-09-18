@@ -21,6 +21,7 @@ before_install:
 ####### pour débugage
         - cat behat.yml
         - echo $(wget localhost -q -O -)
+        - echo $(wget localhost/behat -q -O -)
 ###### mise à jour des droits
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
