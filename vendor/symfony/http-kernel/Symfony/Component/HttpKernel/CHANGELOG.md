@@ -1,11 +1,6 @@
 CHANGELOG
 =========
 
-2.4.0
------
-
- * added the KernelEvents::FINISH_REQUEST event
-
 2.3.0
 -----
 

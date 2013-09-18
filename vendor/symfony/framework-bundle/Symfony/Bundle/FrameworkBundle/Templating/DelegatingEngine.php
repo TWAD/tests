@@ -58,7 +58,7 @@ class DelegatingEngine extends BaseDelegatingEngine implements EngineInterface
     /**
      * {@inheritdoc}
      */
-    public function getEngine($name)
+    protected function getEngine($name)
     {
         foreach ($this->engines as $i => $engine) {
             if (is_string($engine)) {

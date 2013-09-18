@@ -6,7 +6,6 @@ use Buzz\Message\Form\FormRequestInterface;
 use Buzz\Message\Form\FormUploadInterface;
 use Buzz\Message\MessageInterface;
 use Buzz\Message\RequestInterface;
-use Buzz\Exception\ClientException;
 
 /**
  * Base client class with helpers for working with cURL.
@@ -15,16 +14,6 @@ abstract class AbstractCurl extends AbstractClient
 {
     protected $options = array();
 
-    public function __construct()
-    {
-        if (defined('CURLOPT_PROTOCOLS')) {
-            $this->options = array(
-                CURLOPT_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS,
-                CURLOPT_REDIR_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS,
-            );
-        }
-    }
-
     /**
      * Creates a new cURL resource.
      *
@@ -32,10 +21,10 @@ abstract class AbstractCurl extends AbstractClient
      *
      * @return resource A new cURL resource
      */
-    protected static function createCurlHandle()
+    static protected function createCurlHandle()
     {
         if (false === $curl = curl_init()) {
-            throw new ClientException('Unable to create a new cURL handle');
+            throw new \RuntimeException('Unable to create a new cURL handle');
         }
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -51,7 +40,7 @@ abstract class AbstractCurl extends AbstractClient
      * @param string           $raw      The raw response string
      * @param MessageInterface $response The response object
      */
-    protected static function populateResponse($curl, $raw, MessageInterface $response)
+    static protected function populateResponse($curl, $raw, MessageInterface $response)
     {
         $pos = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
@@ -62,7 +51,7 @@ abstract class AbstractCurl extends AbstractClient
     /**
      * Sets options on a cURL resource based on a request.
      */
-    private static function setOptionsFromRequest($curl, RequestInterface $request)
+    static private function setOptionsFromRequest($curl, RequestInterface $request)
     {
         $options = array(
             CURLOPT_CUSTOMREQUEST => $request->getMethod(),
@@ -103,7 +92,7 @@ abstract class AbstractCurl extends AbstractClient
      *
      * @return string|array A post fields value
      */
-    private static function getPostFields(RequestInterface $request)
+    static private function getPostFields(RequestInterface $request)
     {
         if (!$request instanceof FormRequestInterface) {
             return $request->getContent();
@@ -139,7 +128,7 @@ abstract class AbstractCurl extends AbstractClient
      *
      * @return array An array of header lines
      */
-    private static function getLastHeaders($raw)
+    static private function getLastHeaders($raw)
     {
         $headers = array();
         foreach (preg_split('/(\\r?\\n)/', $raw) as $header) {
@@ -180,20 +169,9 @@ abstract class AbstractCurl extends AbstractClient
         static::setOptionsFromRequest($curl, $request);
 
         // apply settings from client
-        if ($this->getTimeout() < 1) {
-            curl_setopt($curl, CURLOPT_TIMEOUT_MS, $this->getTimeout() * 1000);
-        } else {
-            curl_setopt($curl, CURLOPT_TIMEOUT, $this->getTimeout());
-        }
-
-        if ($this->proxy) {
-            curl_setopt($curl, CURLOPT_PROXY, $this->proxy);
-        }
-        
-        $canFollow = !ini_get('safe_mode') && !ini_get('open_basedir');
-
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, $canFollow && $this->getMaxRedirects() > 0);
-        curl_setopt($curl, CURLOPT_MAXREDIRS, $canFollow ? $this->getMaxRedirects() : 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, $this->getTimeout());
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0 < $this->getMaxRedirects());
+        curl_setopt($curl, CURLOPT_MAXREDIRS, $this->getMaxRedirects());
         curl_setopt($curl, CURLOPT_FAILONERROR, !$this->getIgnoreErrors());
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->getVerifyPeer());
 

@@ -305,7 +305,11 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
      */
     public function addCompilerPass(CompilerPassInterface $pass, $type = PassConfig::TYPE_BEFORE_OPTIMIZATION)
     {
-        $this->getCompiler()->addPass($pass, $type);
+        if (null === $this->compiler) {
+            $this->compiler = new Compiler();
+        }
+
+        $this->compiler->addPass($pass, $type);
 
         $this->addObjectResource($pass);
 
@@ -321,7 +325,11 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
      */
     public function getCompilerPassConfig()
     {
-        return $this->getCompiler()->getPassConfig();
+        if (null === $this->compiler) {
+            $this->compiler = new Compiler();
+        }
+
+        return $this->compiler->getPassConfig();
     }
 
     /**
@@ -602,10 +610,12 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
      */
     public function compile()
     {
-        $compiler = $this->getCompiler();
+        if (null === $this->compiler) {
+            $this->compiler = new Compiler();
+        }
 
         if ($this->trackResources) {
-            foreach ($compiler->getPassConfig()->getPasses() as $pass) {
+            foreach ($this->compiler->getPassConfig()->getPasses() as $pass) {
                 $this->addObjectResource($pass);
             }
 
@@ -616,7 +626,7 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
             }
         }
 
-        $compiler->compile($this);
+        $this->compiler->compile($this);
 
         $this->extensionConfigs = array();
 

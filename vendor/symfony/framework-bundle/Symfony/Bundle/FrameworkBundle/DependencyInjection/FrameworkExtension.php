@@ -12,7 +12,6 @@
 namespace Symfony\Bundle\FrameworkBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -242,16 +241,12 @@ class FrameworkExtension extends Extension
         if (isset($config['matcher'])) {
             if (isset($config['matcher']['service'])) {
                 $container->setAlias('profiler.request_matcher', $config['matcher']['service']);
-            } elseif (isset($config['matcher']['ip']) || isset($config['matcher']['path']) || isset($config['matcher']['ips'])) {
+            } elseif (isset($config['matcher']['ip']) || isset($config['matcher']['path'])) {
                 $definition = $container->register('profiler.request_matcher', 'Symfony\\Component\\HttpFoundation\\RequestMatcher');
                 $definition->setPublic(false);
 
                 if (isset($config['matcher']['ip'])) {
                     $definition->addMethodCall('matchIp', array($config['matcher']['ip']));
-                }
-
-                if (isset($config['matcher']['ips'])) {
-                    $definition->addMethodCall('matchIps', array($config['matcher']['ips']));
                 }
 
                 if (isset($config['matcher']['path'])) {
@@ -372,15 +367,6 @@ class FrameworkExtension extends Extension
 
         if ($container->getParameter('kernel.debug')) {
             $loader->load('templating_debug.xml');
-
-            $logger = new Reference('logger', ContainerInterface::IGNORE_ON_INVALID_REFERENCE);
-
-            $container->getDefinition('templating.loader.cache')
-                ->addTag('monolog.logger', array('channel' => 'templating'))
-                ->addMethodCall('setLogger', array($logger));
-            $container->getDefinition('templating.loader.chain')
-                ->addTag('monolog.logger', array('channel' => 'templating'))
-                ->addMethodCall('setLogger', array($logger));
 
             $container->setDefinition('templating.engine.php', $container->findDefinition('debug.templating.engine.php'));
             $container->setAlias('debug.templating.engine.php', 'templating.engine.php');
@@ -634,7 +620,7 @@ class FrameworkExtension extends Extension
                 ->replaceArgument(1, new Reference('validator.mapping.cache.'.$config['cache']));
             $container->setParameter(
                 'validator.mapping.cache.prefix',
-                'validator_'.hash('sha256', $container->getParameter('kernel.root_dir'))
+                'validator_'.md5($container->getParameter('kernel.root_dir'))
             );
         }
     }

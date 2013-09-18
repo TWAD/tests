@@ -22,6 +22,13 @@ use Symfony\Component\HttpKernel\Tests\Fixtures\FooBarBundle;
 
 class KernelTest extends \PHPUnit_Framework_TestCase
 {
+    protected function setUp()
+    {
+        if (!class_exists('Symfony\Component\DependencyInjection\Container')) {
+            $this->markTestSkipped('The "DependencyInjection" component is not available');
+        }
+    }
+
     public function testConstructor()
     {
         $env = 'test_env';
@@ -682,9 +689,9 @@ EOF;
 
     public function testInitializeBundlesSupportsArbitraryBundleRegistrationOrder()
     {
-        $grandparent = $this->getBundle(null, null, 'GrandParentCBundle');
-        $parent = $this->getBundle(null, 'GrandParentCBundle', 'ParentCBundle');
-        $child = $this->getBundle(null, 'ParentCBundle', 'ChildCBundle');
+        $grandparent = $this->getBundle(null, null, 'GrandParentCCundle');
+        $parent = $this->getBundle(null, 'GrandParentCCundle', 'ParentCCundle');
+        $child = $this->getBundle(null, 'ParentCCundle', 'ChildCCundle');
 
         $kernel = $this->getKernel();
         $kernel
@@ -696,9 +703,9 @@ EOF;
         $kernel->initializeBundles();
 
         $map = $kernel->getBundleMap();
-        $this->assertEquals(array($child, $parent, $grandparent), $map['GrandParentCBundle']);
-        $this->assertEquals(array($child, $parent), $map['ParentCBundle']);
-        $this->assertEquals(array($child), $map['ChildCBundle']);
+        $this->assertEquals(array($child, $parent, $grandparent), $map['GrandParentCCundle']);
+        $this->assertEquals(array($child, $parent), $map['ParentCCundle']);
+        $this->assertEquals(array($child), $map['ChildCCundle']);
     }
 
     /**

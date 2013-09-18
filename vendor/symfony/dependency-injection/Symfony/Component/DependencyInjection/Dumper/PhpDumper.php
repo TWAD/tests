@@ -86,7 +86,6 @@ class PhpDumper extends Dumper
      *
      *  * class:      The class name
      *  * base_class: The base class name
-     *  * namespace:  The class namespace
      *
      * @param array $options An array of options
      *
@@ -99,10 +98,9 @@ class PhpDumper extends Dumper
         $options = array_merge(array(
             'class'      => 'ProjectServiceContainer',
             'base_class' => 'Container',
-            'namespace' => '',
         ), $options);
 
-        $code = $this->startClass($options['class'], $options['base_class'], $options['namespace']);
+        $code = $this->startClass($options['class'], $options['base_class']);
 
         if ($this->container->isFrozen()) {
             $code .= $this->addFrozenConstructor();
@@ -443,12 +441,6 @@ class PhpDumper extends Dumper
                 continue;
             }
 
-            // if the instance is simple, the return statement has already been generated
-            // so, the only possible way to get there is because of a circular reference
-            if ($this->isSimpleInstance($id, $definition)) {
-                throw new ServiceCircularReferenceException($id, array($id));
-            }
-
             $name = (string) $this->definitionVariables->offsetGet($iDefinition);
             $code .= $this->addServiceMethodCalls(null, $iDefinition, $name);
             $code .= $this->addServiceProperties(null, $iDefinition, $name);
@@ -708,18 +700,16 @@ EOF;
      *
      * @param string $class     Class name
      * @param string $baseClass The name of the base class
-     * @param string $namespace The class namespace
      *
      * @return string
      */
-    private function startClass($class, $baseClass, $namespace)
+    private function startClass($class, $baseClass)
     {
         $bagClass = $this->container->isFrozen() ? 'use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;' : 'use Symfony\Component\DependencyInjection\ParameterBag\\ParameterBag;';
-        $namespaceLine = $namespace ? "namespace $namespace;\n" : '';
 
         return <<<EOF
 <?php
-$namespaceLine
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\Exception\InactiveScopeException;
@@ -1115,7 +1105,7 @@ EOF;
      *
      * @return Boolean
      */
-    private function hasReference($id, array $arguments, $deep = false, array $visited = array())
+    private function hasReference($id, array $arguments, $deep = false, $visited = array())
     {
         foreach ($arguments as $argument) {
             if (is_array($argument)) {
@@ -1123,15 +1113,14 @@ EOF;
                     return true;
                 }
             } elseif ($argument instanceof Reference) {
-                $argumentId = (string) $argument;
-                if ($id === $argumentId) {
+                if ($id === (string) $argument) {
                     return true;
                 }
 
-                if ($deep && !isset($visited[$argumentId])) {
-                    $visited[$argumentId] = true;
+                if ($deep && !isset($visited[(string) $argument])) {
+                    $visited[(string) $argument] = true;
 
-                    $service = $this->container->getDefinition($argumentId);
+                    $service = $this->container->getDefinition((string) $argument);
                     $arguments = array_merge($service->getMethodCalls(), $service->getArguments(), $service->getProperties());
 
                     if ($this->hasReference($id, $arguments, $deep, $visited)) {

@@ -1,12 +1,6 @@
 CHANGELOG
 =========
 
-2.4.0
------
-
- * allowed multiple IP addresses in profiler matcher settings
- * added stopwatch helper to time templates with the WebProfilerBundle
-
 2.3.0
 -----
 

@@ -181,7 +181,7 @@ class ClassLoader
      */
     public function loadClass($class)
     {
-        if ($file = $this->findFile($class)) {
+        if ($file = $this->findFile($class)) {//echo PHP_EOL,'include ',$class;
             include $file;
 
             return true;

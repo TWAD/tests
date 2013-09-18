@@ -13,7 +13,6 @@ namespace Symfony\Bundle\FrameworkBundle\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -50,7 +49,6 @@ class RouterDebugCommand extends ContainerAwareCommand
             ->setName('router:debug')
             ->setDefinition(array(
                 new InputArgument('name', InputArgument::OPTIONAL, 'A route name'),
-                new InputOption('show-controllers', null,  InputOption::VALUE_NONE, 'Show assigned controllers in overview')
             ))
             ->setDescription('Displays current routes for an application')
             ->setHelp(<<<EOF
@@ -74,11 +72,11 @@ EOF
         if ($name) {
             $this->outputRoute($output, $name);
         } else {
-            $this->outputRoutes($output, null, $input->getOption('show-controllers'));
+            $this->outputRoutes($output);
         }
     }
 
-    protected function outputRoutes(OutputInterface $output, $routes = null, $showControllers = false)
+    protected function outputRoutes(OutputInterface $output, $routes = null)
     {
         if (null === $routes) {
             $routes = $this->getContainer()->get('router')->getRouteCollection()->all();
@@ -90,52 +88,26 @@ EOF
         $maxMethod = strlen('method');
         $maxScheme = strlen('scheme');
         $maxHost = strlen('host');
-        $maxPath = strlen('path');
 
         foreach ($routes as $name => $route) {
             $method = $route->getMethods() ? implode('|', $route->getMethods()) : 'ANY';
             $scheme = $route->getSchemes() ? implode('|', $route->getSchemes()) : 'ANY';
             $host = '' !== $route->getHost() ? $route->getHost() : 'ANY';
-            $path = $route->getPath();
             $maxName = max($maxName, strlen($name));
             $maxMethod = max($maxMethod, strlen($method));
             $maxScheme = max($maxScheme, strlen($scheme));
             $maxHost = max($maxHost, strlen($host));
-            $maxPath = max($maxPath, strlen($path));
         }
 
         $format  = '%-'.$maxName.'s %-'.$maxMethod.'s %-'.$maxScheme.'s %-'.$maxHost.'s %s';
-        $formatHeader  = '%-'.($maxName + 19).'s %-'.($maxMethod + 19).'s %-'.($maxScheme + 19).'s %-'.($maxHost + 19).'s %-'.($maxPath + 19).'s';
-
-        if ($showControllers) {
-            $format = str_replace('s %s', 's %-'.$maxPath.'s %s', $format);
-            $formatHeader = $formatHeader . ' %s';
-        }
-
-        if ($showControllers) {
-            $output->writeln(sprintf($formatHeader, '<comment>Name</comment>', '<comment>Method</comment>',  '<comment>Scheme</comment>', '<comment>Host</comment>', '<comment>Path</comment>', '<comment>Controller</comment>'));
-        } else {
-            $output->writeln(sprintf($formatHeader, '<comment>Name</comment>', '<comment>Method</comment>',  '<comment>Scheme</comment>', '<comment>Host</comment>', '<comment>Path</comment>'));
-        }
+        $formatHeader  = '%-'.($maxName + 19).'s %-'.($maxMethod + 19).'s %-'.($maxScheme + 19).'s %-'.($maxHost + 19).'s %s';
+        $output->writeln(sprintf($formatHeader, '<comment>Name</comment>', '<comment>Method</comment>',  '<comment>Scheme</comment>', '<comment>Host</comment>', '<comment>Path</comment>'));
 
         foreach ($routes as $name => $route) {
             $method = $route->getMethods() ? implode('|', $route->getMethods()) : 'ANY';
             $scheme = $route->getSchemes() ? implode('|', $route->getSchemes()) : 'ANY';
             $host = '' !== $route->getHost() ? $route->getHost() : 'ANY';
-            if ($showControllers) {
-                $defaultData = $route->getDefaults();
-                $controller = $defaultData['_controller'] ? $defaultData['_controller'] : '';
-                if ($controller instanceof \Closure) {
-                    $controller = 'Closure';
-                } else {
-                    if (is_object($controller)) {
-                        $controller = get_class($controller);
-                    }
-                }
-                $output->writeln(sprintf($format, $name, $method, $scheme, $host, $route->getPath(), $controller), OutputInterface::OUTPUT_RAW);
-            } else {
-                $output->writeln(sprintf($format, $name, $method, $scheme, $host, $route->getPath()), OutputInterface::OUTPUT_RAW);
-            }
+            $output->writeln(sprintf($format, $name, $method, $scheme, $host, $route->getPath()), OutputInterface::OUTPUT_RAW);
         }
     }
 

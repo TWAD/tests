@@ -28,11 +28,8 @@ namespace Pimple\Tests;
 
 class Invokable
 {
-    public function __invoke($value = null)
+    public function __invoke()
     {
-        $service = new Service();
-        $service->value = $value;
-
-        return $service;
+        return 'I was invoked';
     }
 }

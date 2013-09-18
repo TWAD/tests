@@ -130,11 +130,6 @@ class Request
     /**
      * @var array
      */
-    protected $encodings;
-
-    /**
-     * @var array
-     */
     protected $acceptableContentTypes;
 
     /**
@@ -233,7 +228,6 @@ class Request
         $this->content = $content;
         $this->languages = null;
         $this->charsets = null;
-        $this->encodings = null;
         $this->acceptableContentTypes = null;
         $this->pathInfo = null;
         $this->requestUri = null;
@@ -352,20 +346,11 @@ class Request
                 break;
         }
 
-        $queryString = '';
         if (isset($components['query'])) {
             parse_str(html_entity_decode($components['query']), $qs);
-
-            if ($query) {
-                $query = array_replace($qs, $query);
-                $queryString = http_build_query($query, '', '&');
-            } else {
-                $query = $qs;
-                $queryString = $components['query'];
-            }
-        } elseif ($query) {
-            $queryString = http_build_query($query, '', '&');
+            $query = array_replace($qs, $query);
         }
+        $queryString = http_build_query($query, '', '&');
 
         $server['REQUEST_URI'] = $components['path'].('' !== $queryString ? '?'.$queryString : '');
         $server['QUERY_STRING'] = $queryString;
@@ -411,7 +396,6 @@ class Request
         }
         $dup->languages = null;
         $dup->charsets = null;
-        $dup->encodings = null;
         $dup->acceptableContentTypes = null;
         $dup->pathInfo = null;
         $dup->requestUri = null;
@@ -420,12 +404,8 @@ class Request
         $dup->method = null;
         $dup->format = null;
 
-        if (!$dup->get('_format') && $this->get('_format')) {
-            $dup->attributes->set('_format', $this->get('_format'));
-        }
-
-        if (!$dup->getRequestFormat(null)) {
-            $dup->setRequestFormat($format = $this->getRequestFormat(null));
+        if (!$dup->get('_format')) {
+            $dup->setRequestFormat($this->getRequestFormat());
         }
 
         return $dup;
@@ -739,9 +719,9 @@ class Request
     /**
      * Returns the client IP addresses.
      *
-     * The least trusted IP address is first, and the most trusted one last.
-     * The "real" client IP address is the first one, but this is also the
-     * least trusted one.
+     * The most trusted IP address is first, and the less trusted one last.
+     * The "real" client IP address is the last one, but this is also the
+     * less trusted one.
      *
      * Use this method carefully; you should use getClientIp() instead.
      *
@@ -925,14 +905,6 @@ class Request
             }
         }
 
-        if ($host = $this->headers->get('HOST')) {
-            if (false !== $pos = strrpos($host, ':')) {
-                return intval(substr($host, $pos + 1));
-            }
-
-            return 'https' === $this->getScheme() ? 443 : 80;
-        }
-
         return $this->server->get('SERVER_PORT');
     }
 
@@ -967,7 +939,7 @@ class Request
 
         $pass = $this->getPassword();
         if ('' != $pass) {
-            $userinfo .= ":$pass";
+           $userinfo .= ":$pass";
         }
 
         return $userinfo;
@@ -1133,7 +1105,7 @@ class Request
         // as the host can come from the user (HTTP_HOST and depending on the configuration, SERVER_NAME too can come from the user)
         // check that it does not contain forbidden characters (see RFC 952 and RFC 2181)
         if ($host && !preg_match('/^\[?(?:[a-zA-Z0-9-:\]_]+\.?)+$/', $host)) {
-            throw new \UnexpectedValueException(sprintf('Invalid Host "%s"', $host));
+            throw new \UnexpectedValueException('Invalid Host "'.$host.'"');
         }
 
         if (count(self::$trustedHostPatterns) > 0) {
@@ -1151,7 +1123,7 @@ class Request
                 }
             }
 
-            throw new \UnexpectedValueException(sprintf('Untrusted Host "%s"', $host));
+            throw new \UnexpectedValueException('Untrusted Host "'.$host.'"');
         }
 
         return $host;
@@ -1531,20 +1503,6 @@ class Request
     }
 
     /**
-     * Gets a list of encodings acceptable by the client browser.
-     *
-     * @return array List of encodings in preferable order
-     */
-    public function getEncodings()
-    {
-        if (null !== $this->encodings) {
-            return $this->encodings;
-        }
-
-        return $this->encodings = array_keys(AcceptHeader::fromString($this->headers->get('Accept-Encoding'))->all());
-    }
-
-    /**
      * Gets a list of content types acceptable by the client browser
      *
      * @return array List of content types in preferable order
@@ -1655,7 +1613,7 @@ class Request
                 $seg     = $segs[$index];
                 $baseUrl = '/'.$seg.$baseUrl;
                 ++$index;
-            } while ($last > $index && (false !== $pos = strpos($path, $baseUrl)) && 0 != $pos);
+            } while (($last > $index) && (false !== ($pos = strpos($path, $baseUrl))) && (0 != $pos));
         }
 
         // Does the baseUrl have anything in common with the request_uri?
@@ -1672,7 +1630,7 @@ class Request
         }
 
         $truncatedRequestUri = $requestUri;
-        if (false !== $pos = strpos($requestUri, '?')) {
+        if (($pos = strpos($requestUri, '?')) !== false) {
             $truncatedRequestUri = substr($requestUri, 0, $pos);
         }
 
@@ -1685,7 +1643,7 @@ class Request
         // If using mod_rewrite or ISAPI_Rewrite strip the script filename
         // out of baseUrl. $pos !== 0 makes sure it is not matching a value
         // from PATH_INFO or QUERY_STRING
-        if (strlen($requestUri) >= strlen($baseUrl) && (false !== $pos = strpos($requestUri, $baseUrl)) && $pos !== 0) {
+        if ((strlen($requestUri) >= strlen($baseUrl)) && ((false !== ($pos = strpos($requestUri, $baseUrl))) && ($pos !== 0))) {
             $baseUrl = substr($requestUri, 0, $pos + strlen($baseUrl));
         }
 
@@ -1738,7 +1696,7 @@ class Request
             $requestUri = substr($requestUri, 0, $pos);
         }
 
-        if (null !== $baseUrl && false === $pathInfo = substr($requestUri, strlen($baseUrl))) {
+        if ((null !== $baseUrl) && (false === ($pathInfo = substr($requestUri, strlen($baseUrl))))) {
             // If substr() returns false then PATH_INFO is set to an empty string
             return '/';
         } elseif (null === $baseUrl) {

@@ -3,7 +3,6 @@
 namespace Buzz\Message\Form;
 
 use Buzz\Message\Request;
-use Buzz\Exception\LogicException;
 
 /**
  * FormRequest.
@@ -40,7 +39,6 @@ class FormRequest extends Request implements FormRequestInterface
     {
         if (is_array($value)) {
             $this->addFields(array($name => $value));
-
             return;
         }
 
@@ -122,7 +120,7 @@ class FormRequest extends Request implements FormRequestInterface
             $content .= '--'.$this->getBoundary()."\r\n";
             if ($values instanceof FormUploadInterface) {
                 if (!$values->getFilename()) {
-                    throw new LogicException(sprintf('Form upload at "%s" does not include a filename.', $name));
+                    throw new \LogicException(sprintf('Form upload at "%s" does not include a filename.', $name));
                 }
 
                 $values->setName($name);

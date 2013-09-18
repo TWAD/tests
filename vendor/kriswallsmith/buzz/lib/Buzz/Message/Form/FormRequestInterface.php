@@ -16,12 +16,12 @@ interface FormRequestInterface extends RequestInterface
      *
      * @return array A array of names and values
      */
-    public function getFields();
+    function getFields();
 
     /**
      * Sets the form fields for the current request.
      *
      * @param array $fields An array of field names and values
      */
-    public function setFields(array $fields);
+    function setFields(array $fields);
 }

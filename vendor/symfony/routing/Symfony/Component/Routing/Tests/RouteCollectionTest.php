@@ -103,6 +103,10 @@ class RouteCollectionTest extends \PHPUnit_Framework_TestCase
 
     public function testAddCollectionWithResources()
     {
+        if (!class_exists('Symfony\Component\Config\Resource\FileResource')) {
+            $this->markTestSkipped('The "Config" component is not available');
+        }
+
         $collection = new RouteCollection();
         $collection->addResource($foo = new FileResource(__DIR__.'/Fixtures/foo.xml'));
         $collection1 = new RouteCollection();
@@ -174,6 +178,10 @@ class RouteCollectionTest extends \PHPUnit_Framework_TestCase
 
     public function testResource()
     {
+        if (!class_exists('Symfony\Component\Config\Resource\FileResource')) {
+            $this->markTestSkipped('The "Config" component is not available');
+        }
+
         $collection = new RouteCollection();
         $collection->addResource($foo = new FileResource(__DIR__.'/Fixtures/foo.xml'));
         $collection->addResource($bar = new FileResource(__DIR__.'/Fixtures/bar.xml'));

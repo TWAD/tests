@@ -1,11 +1,6 @@
 Changelog
 =========
 
-1.1.1 (2013-XX-XX)
-------------------
-
-* Only convert attributes on the request that actually exist.
-
 1.1.0 (2013-07-04)
 ------------------
 

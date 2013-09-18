@@ -1,22 +1,14 @@
-# default:
-    # extensions:
-        # Behat\MinkExtension\Extension:
-            # base_url: http://localhost/TEST/index.php/
-        
-            # default_session: selenium2
-            # selenium2:                    
-                # capabilities: { "browser": "firefox", "version": "19"}
-
 default:
+#  context:
+#    class: CustomFeatureContext
   extensions:
     #Behat\Symfony2Extension\Extension: ~
 #       mink_driver: true
     Behat\MinkExtension\Extension:
-      base_url: 'http://localhost/TEST/index.php'
-#      base_url: 'http://192.168.14.225/demo_master/web/'
+      base_url: 'http://localhost/tests_anthony/index.php'
 #      default_session: selenium2
       default_session: sahi
-      browser_name: 'firefox'
+      browser_name: 'chrome'
 #      selenium2: ~
       sahi: ~
       #goutte: ~

@@ -22,54 +22,54 @@ interface RequestInterface extends MessageInterface
      *
      * @return string An HTTP method
      */
-    public function getMethod();
+    function getMethod();
 
     /**
      * Sets the HTTP method of the current request.
      *
      * @param string $method The request method
      */
-    public function setMethod($method);
+    function setMethod($method);
 
     /**
      * Returns the resource portion of the request line.
      *
      * @return string The resource requested
      */
-    public function getResource();
+    function getResource();
 
     /**
      * Sets the resource for the current request.
      *
      * @param string $resource The resource being requested
      */
-    public function setResource($resource);
+    function setResource($resource);
 
     /**
      * Returns the protocol version of the current request.
      *
      * @return float The protocol version
      */
-    public function getProtocolVersion();
+    function getProtocolVersion();
 
     /**
      * Returns the value of the host header.
      *
      * @return string|null The host
      */
-    public function getHost();
+    function getHost();
 
     /**
      * Sets the host for the current request.
      *
      * @param string $host The host
      */
-    public function setHost($host);
+    function setHost($host);
 
     /**
      * Checks if the current request is secure.
      *
      * @return Boolean True if the request is secure
      */
-    public function isSecure();
+    function isSecure();
 }

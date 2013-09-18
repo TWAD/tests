@@ -234,6 +234,10 @@ abstract class FrameworkExtensionTest extends TestCase
 
     public function testAnnotations()
     {
+        if (!class_exists('Doctrine\\Common\\Version')) {
+            $this->markTestSkipped('Doctrine is not available.');
+        }
+
         $container = $this->createContainerFromFile('full');
 
         $this->assertEquals($container->getParameter('kernel.cache_dir').'/annotations', $container->getDefinition('annotations.file_cache_reader')->getArgument(1));
@@ -283,12 +287,13 @@ abstract class FrameworkExtensionTest extends TestCase
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles'     => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
-            'kernel.cache_dir'   => __DIR__,
-            'kernel.debug'       => false,
-            'kernel.environment' => 'test',
-            'kernel.name'        => 'kernel',
-            'kernel.root_dir'    => __DIR__,
+            'kernel.bundles'          => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
+            'kernel.cache_dir'        => __DIR__,
+            'kernel.compiled_classes' => array(),
+            'kernel.debug'            => false,
+            'kernel.environment'      => 'test',
+            'kernel.name'             => 'kernel',
+            'kernel.root_dir'         => __DIR__,
         ), $data)));
     }
 

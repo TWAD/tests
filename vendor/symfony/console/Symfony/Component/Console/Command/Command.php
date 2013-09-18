@@ -17,7 +17,6 @@ use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
@@ -577,10 +576,8 @@ class Command
     public function asText()
     {
         $descriptor = new TextDescriptor();
-        $output = new BufferedOutput(BufferedOutput::VERBOSITY_NORMAL, true);
-        $descriptor->describe($output, $this, array('raw_output' => true));
-        
-        return $output->fetch();
+
+        return $descriptor->describe($this);
     }
 
     /**
@@ -595,15 +592,8 @@ class Command
     public function asXml($asDom = false)
     {
         $descriptor = new XmlDescriptor();
-        
-        if ($asDom) {
-            return $descriptor->getCommandDocument($this);
-        }
-        
-        $output = new BufferedOutput();
-        $descriptor->describe($output, $this);
-        
-        return $output->fetch();
+
+        return $descriptor->describe($this, array('as_dom' => $asDom));
     }
 
     private function validateName($name)

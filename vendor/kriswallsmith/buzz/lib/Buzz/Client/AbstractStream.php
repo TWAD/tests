@@ -15,7 +15,7 @@ abstract class AbstractStream extends AbstractClient
      */
     public function getStreamContextArray(RequestInterface $request)
     {
-        $options = array(
+        return array(
             'http' => array(
                 // values from the request
                 'method'           => $request->getMethod(),
@@ -32,12 +32,5 @@ abstract class AbstractStream extends AbstractClient
                 'verify_peer'      => $this->getVerifyPeer(),
             ),
         );
-
-        if ($this->proxy) {
-            $options['http']['proxy'] = $this->proxy;
-            $options['http']['request_fulluri'] = true;
-        }
-
-        return $options;
     }
 }

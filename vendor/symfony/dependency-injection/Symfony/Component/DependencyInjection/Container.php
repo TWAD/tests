@@ -240,9 +240,8 @@ class Container implements IntrospectableContainerInterface
     {
         $id = strtolower($id);
 
-        return isset($this->services[$id])
-            || array_key_exists($id, $this->services)
-            || isset($this->aliases[$id])
+        return array_key_exists($id, $this->services)
+            || array_key_exists($id, $this->aliases)
             || method_exists($this, 'get'.strtr($id, array('_' => '', '.' => '_')).'Service')
         ;
     }
@@ -268,21 +267,16 @@ class Container implements IntrospectableContainerInterface
      */
     public function get($id, $invalidBehavior = self::EXCEPTION_ON_INVALID_REFERENCE)
     {
-        // Attempt to retrieve the service by checking first aliases then
-        // available services. Service IDs are case insensitive, however since
-        // this method can be called thousands of times during a request, avoid
-        // calling strotolower() unless necessary.
-        foreach (array(false, true) as $strtolower) {
-            if ($strtolower) {
-                $id = strtolower($id);
-            }
-            if (isset($this->aliases[$id])) {
-                $id = $this->aliases[$id];
-            }
-            // Re-use shared service instance if it exists.
-            if (isset($this->services[$id]) || array_key_exists($id, $this->services)) {
-                return $this->services[$id];
-            }
+        $id = strtolower($id);
+
+        // resolve aliases
+        if (isset($this->aliases[$id])) {
+            $id = $this->aliases[$id];
+        }
+
+        // re-use shared service instance if it exists
+        if (array_key_exists($id, $this->services)) {
+            return $this->services[$id];
         }
 
         if (isset($this->loading[$id])) {
@@ -345,8 +339,7 @@ class Container implements IntrospectableContainerInterface
      */
     public function initialized($id)
     {
-        $id = strtolower($id);
-        return isset($this->services[$id]) || array_key_exists($id, $this->services);
+        return array_key_exists(strtolower($id), $this->services);
     }
 
     /**

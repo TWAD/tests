@@ -70,6 +70,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $response->{$method}());
     }
 
+
     public function statusProvider()
     {
         return array(

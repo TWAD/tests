@@ -13,5 +13,5 @@ interface ClientInterface
      * @param RequestInterface $request  A request object
      * @param MessageInterface $response A response object
      */
-    public function send(RequestInterface $request, MessageInterface $response);
+    function send(RequestInterface $request, MessageInterface $response);
 }

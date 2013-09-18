@@ -28,7 +28,7 @@ class ProcessBuilder
     private $timeout;
     private $options;
     private $inheritEnv;
-    private $prefix = array();
+    private $prefix;
 
     public function __construct(array $arguments = array())
     {
@@ -62,15 +62,15 @@ class ProcessBuilder
     /**
      * Adds an unescaped prefix to the command string.
      *
-     * The prefix is preserved when resetting arguments.
+     * The prefix is preserved when reseting arguments.
      *
-     * @param string|array $prefix A command prefix or an array of command prefixes
+     * @param string $prefix A command prefix
      *
      * @return ProcessBuilder
      */
     public function setPrefix($prefix)
     {
-        $this->prefix = is_array($prefix) ? $prefix : array($prefix);
+        $this->prefix = $prefix;
 
         return $this;
     }
@@ -154,18 +154,17 @@ class ProcessBuilder
 
     public function getProcess()
     {
-        if (0 === count($this->prefix) && 0 === count($this->arguments)) {
+        if (!$this->prefix && !count($this->arguments)) {
             throw new LogicException('You must add() command arguments before calling getProcess().');
         }
 
         $options = $this->options;
 
-        $arguments = array_merge($this->prefix, $this->arguments);
+        $arguments = $this->prefix ? array_merge(array($this->prefix), $this->arguments) : $this->arguments;
         $script = implode(' ', array_map(array(__NAMESPACE__.'\\ProcessUtils', 'escapeArgument'), $arguments));
 
         if ($this->inheritEnv) {
-            // include $_ENV for BC purposes 
-            $env = array_replace($_ENV, $_SERVER, $this->env); 
+            $env = $this->env ? $this->env + $_ENV : null;
         } else {
             $env = $this->env;
         }

@@ -32,8 +32,7 @@ class InlineFragmentRenderer extends RoutableFragmentRenderer
     /**
      * Constructor.
      *
-     * @param HttpKernelInterface      $kernel     A HttpKernelInterface instance
-     * @param EventDispatcherInterface $dispatcher A EventDispatcherInterface instance
+     * @param HttpKernelInterface $kernel A HttpKernelInterface instance
      */
     public function __construct(HttpKernelInterface $kernel, EventDispatcherInterface $dispatcher = null)
     {
@@ -61,15 +60,14 @@ class InlineFragmentRenderer extends RoutableFragmentRenderer
             $attributes = $reference->attributes;
             $reference->attributes = array();
 
-            // The request format and locale might have been overridden by the user
+            // The request format and locale might have been overriden by the user
             foreach (array('_format', '_locale') as $key) {
                 if (isset($attributes[$key])) {
                     $reference->attributes[$key] = $attributes[$key];
                 }
             }
 
-            $uri = $this->generateFragmentUri($uri, $request, false, false);
-
+            $uri = $this->generateFragmentUri($uri, $request);
             $reference->attributes = array_merge($attributes, $reference->attributes);
         }
 
