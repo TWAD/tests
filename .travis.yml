@@ -2,14 +2,50 @@ language: php
 php:
     - 5.4
 before_install:
-install:
-before_script:
+        - sudo apt-get update
+
         - sudo apt-get install apache2
-        - composer install --dev --prefer-source
+        - sudo apt-get install libapache2-mod-php5
+        - sudo apt-get install firefox
+
+#        - firefox -v
+#        - composer install --dev --prefer-source
+#        - composer update
         - chmod +x bin/behat
-        - ls -l
-#script: vendor/bin/phpunit
-script: bin/behat Tests/Goutte/test.feature
+        - sudo chmod 777 /var/www
+        - cp -r /home/travis/build/TWAD/tests /var/www/TEST
+        - cd /var/www/TEST
+
+#        - sh -e /etc/init.d/xvfb start
+#        - export DISPLAY=:99.0
+#        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+#        - java -jar "selenium-server-standalone-2.35.0.jar" &
+#        - sleep 5
+
+        - sh -e /etc/init.d/xvfb start
+        - export DISPLAY=:99.0
+        - sleep 4
+
+#        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+#        - java -jar "selenium-server-standalone-2.35.0.jar" &
+#        - sleep 5
+
+        - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
+        - unzip sahi.zip > /dev/null
+        - cd sahi/bin
+        - sh sahi.sh > /dev/null &
+        - cd -
+        - sleep 4
+
+# befor_script:
+        # - "sh -e /etc/init.d/xvfb start"
+        # - "export DISPLAY=:99.0"
+        # - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
+        # - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
+        # - sleep 5
+script: 
+        - bin/behat Tests/Goutte/test.feature --tags "test_3" -f progress
+#        - vendor/bin/phpunit
 email:
     recipients:
       - anthonydeniaud@gmail.com
