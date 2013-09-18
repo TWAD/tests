@@ -2,51 +2,60 @@ language: php
 php:
     - 5.4
 before_install:
+############ installation du serveur apache et firefox
         - sudo apt-get update
-
         - sudo apt-get install apache2
-        - sudo apt-get install libapache2-mod-php5
-        - sudo apt-get install firefox
-
-#        - firefox -v
-#        - composer install --dev --prefer-source
-#        - composer update
+		  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5
+ 		  - sudo apt-get install firefox
+#		  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+#        - sudo apt-get install libapache2-mod-php5
+#        - firefox -v ##pour consulter la version de firefox
+###### installation des dépendances
+#        - composer install --dev --prefer-source  
+#        - composer update  #pour installation des dépendances
+###### config du serveur et behat.yml
+ 		  - echo "Alias /behat $(pwd)/web" | sudo tee -a /etc/apache2/sites-available/default
+#sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default
+ 		  - sudo /etc/init.d/apache2 restart
+ 		  - sed 's/%hostname%/localhost\/behat/' behat.yml.dist > behat.yml
+####### pour débugage
+        - cat behat.yml
+        - echo $(wget localhost -q -O -)
+###### mise à jour des droits
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
-        - cp -r /home/travis/build/TWAD/tests /var/www/TEST
-        - cd /var/www/TEST
+######### lien symbolique vers le répertoire wwww
+#        - ln -s /home/travis/build/TWAD/tests /var/www/TEST
 
-#        - sh -e /etc/init.d/xvfb start
-#        - export DISPLAY=:99.0
-#        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
-#        - java -jar "selenium-server-standalone-2.35.0.jar" &
-#        - sleep 5
-
+###### pour émulation de l'écran 
         - sh -e /etc/init.d/xvfb start
         - export DISPLAY=:99.0
         - sleep 4
-
+###### ajout de selénium et lancement
 #        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
 #        - java -jar "selenium-server-standalone-2.35.0.jar" &
 #        - sleep 5
-
+###### ajout de sahi et lancement
         - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
         - unzip sahi.zip > /dev/null
         - cd sahi/bin
         - sh sahi.sh > /dev/null &
         - cd -
         - sleep 4
+####### pour débugage
+        - pwd
 
-# befor_script:
-        # - "sh -e /etc/init.d/xvfb start"
-        # - "export DISPLAY=:99.0"
-        # - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
-        # - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
-        # - sleep 5
+### cette section est celle qui va lancer les tests
 script: 
         - bin/behat Tests/Goutte/test.feature --tags "test_3" -f progress
 #        - vendor/bin/phpunit
+
+####### section des notifications
 email:
     recipients:
       - anthonydeniaud@gmail.com
-    #on_success: always #doc: http://about.travis-ci.org/docs/user/notifications/
+    #on_success: always # @see doc: http://about.travis-ci.org/docs/user/notifications/
+
+
+
+
