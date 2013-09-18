@@ -5,8 +5,8 @@ before_install:
 ############ installation du serveur apache et firefox
         - sudo apt-get update
         - sudo apt-get install apache2
-		  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5
- 		  - sudo apt-get install firefox
+        - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5
+        - sudo apt-get install firefox
 #		  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
 #        - sudo apt-get install libapache2-mod-php5
 #        - firefox -v ##pour consulter la version de firefox
@@ -14,10 +14,10 @@ before_install:
 #        - composer install --dev --prefer-source  
 #        - composer update  #pour installation des dépendances
 ###### config du serveur et behat.yml
- 		  - echo "Alias /behat $(pwd)/web" | sudo tee -a /etc/apache2/sites-available/default
-#sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default
- 		  - sudo /etc/init.d/apache2 restart
- 		  - sed 's/%hostname%/localhost\/behat/' behat.yml.dist > behat.yml
+        - echo "Alias /behat $(pwd)/web" | sudo tee -a /etc/apache2/sites-available/default
+# sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default
+        - sudo /etc/init.d/apache2 restart
+        - sed 's/%hostname%/localhost\/behat/' behat.yml.dist > behat.yml
 ####### pour débugage
         - cat behat.yml
         - echo $(wget localhost -q -O -)
