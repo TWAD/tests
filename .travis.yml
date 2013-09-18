@@ -13,11 +13,26 @@ before_install:
         - sudo chmod 777 /var/www
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
         - cd /var/www/TEST
-        - sh -e /etc/init.d/xvfb start
-        - export DISPLAY=:99.0
+		
+#        - sh -e /etc/init.d/xvfb start
+#        - export DISPLAY=:99.0
 #        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
 #        - java -jar "selenium-server-standalone-2.35.0.jar" &
+#        - sleep 5
+
+        - sh -e /etc/init.d/xvfb start
+        - export DISPLAY=:99.0
+        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+        - java -jar "selenium-server-standalone-2.35.0.jar" &
         - sleep 5
+
+        - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
+        - unzip sahi.zip > /dev/null
+        - cd sahi/bin
+        - sh sahi.sh > /dev/null &
+        - cd -
+        - sleep 4
+		
 # befor_script:
         # - "sh -e /etc/init.d/xvfb start"
         # - "export DISPLAY=:99.0"
