@@ -3,9 +3,6 @@ php:
     - 5.4
 before_install:
         - sudo apt-get update
-        - download sahi_installer jar
-        - open a console
-        - open java -jar path/to/sahi_installer
 #
         - sudo apt-get install apache2
         - sudo apt-get install libapache2-mod-php5

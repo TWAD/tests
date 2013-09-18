@@ -2831,5 +2831,160 @@
         "keywords": [
             "microframework"
         ]
+    },
+    {
+        "name": "kriswallsmith/buzz",
+        "version": "v0.10",
+        "version_normalized": "0.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/Buzz.git",
+            "reference": "759432d66387e3433d3b06cb6f773b97225b9b17"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/759432d66387e3433d3b06cb6f773b97225b9b17",
+            "reference": "759432d66387e3433d3b06cb6f773b97225b9b17",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "suggest": {
+            "ext-curl": "*"
+        },
+        "time": "2013-05-19 03:41:15",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Buzz": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Lightweight HTTP client",
+        "homepage": "https://github.com/kriswallsmith/Buzz",
+        "keywords": [
+            "curl",
+            "http client"
+        ]
+    },
+    {
+        "name": "behat/sahi-client",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Behat/SahiClient.git",
+            "reference": "783b62f64c06529b0d912de7ae4375ee9d37424b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Behat/SahiClient/zipball/783b62f64c06529b0d912de7ae4375ee9d37424b",
+            "reference": "783b62f64c06529b0d912de7ae4375ee9d37424b",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/buzz": ">=0.7,<1.0-dev",
+            "php": ">=5.3.1"
+        },
+        "time": "2013-06-02 19:22:21",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Behat\\SahiClient": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Konstantin Kudryashov",
+                "email": "ever.zet@gmail.com",
+                "homepage": "http://everzet.com"
+            }
+        ],
+        "description": "Sahi.js client for PHP 5.3",
+        "homepage": "http://sahi.co.in/w/",
+        "keywords": [
+            "JS",
+            "browser",
+            "testing"
+        ]
+    },
+    {
+        "name": "behat/mink-sahi-driver",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Behat/MinkSahiDriver.git",
+            "reference": "55a4f5fff3492ef18e0d75d79705fbc5e6fb18b3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Behat/MinkSahiDriver/zipball/55a4f5fff3492ef18e0d75d79705fbc5e6fb18b3",
+            "reference": "55a4f5fff3492ef18e0d75d79705fbc5e6fb18b3",
+            "shasum": ""
+        },
+        "require": {
+            "behat/mink": "~1.4.3",
+            "behat/sahi-client": "~1.1.0",
+            "php": ">=5.3.1"
+        },
+        "time": "2013-03-25 12:15:10",
+        "type": "mink-driver",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Behat\\Mink\\Driver": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Konstantin Kudryashov",
+                "email": "ever.zet@gmail.com",
+                "homepage": "http://everzet.com"
+            }
+        ],
+        "description": "Sahi.JS driver for Mink framework",
+        "homepage": "http://mink.behat.org/",
+        "keywords": [
+            "ajax",
+            "browser",
+            "javascript",
+            "sahi",
+            "testing"
+        ]
     }
 ]
