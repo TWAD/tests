@@ -1,5 +1,5 @@
 <?php return array (
-  'en' =>
+  'en' => 
   array (
     'name' => 'English',
     'native' => 'English',
@@ -14,7 +14,7 @@
     'and' => 'And',
     'but' => 'But',
   ),
-  'ar' =>
+  'ar' => 
   array (
     'name' => 'Arabic',
     'native' => 'العربية',
@@ -29,22 +29,22 @@
     'and' => 'و',
     'but' => 'لكن',
   ),
-  'bm' =>
+  'bm' => 
   array (
     'name' => 'Malay',
     'native' => 'Bahasa Melayu',
     'feature' => 'Fungsi',
     'background' => 'Latar Belakang',
-    'scenario' => 'Senario|Situai|Keadaan',
-    'scenario_outline' => 'Template Senario|Template Situai|Template Keadaan|Menggariskan Senario',
-    'examples' => 'Contoh',
-    'given' => 'Diberi|Bagi',
+    'scenario' => 'Senario',
+    'scenario_outline' => 'Menggariskan Senario ',
+    'examples' => 'Contoh ',
+    'given' => 'Bagi',
     'when' => 'Apabila',
-    'then' => 'Kemudian|Maka',
+    'then' => 'Kemudian',
     'and' => 'Dan',
-    'but' => 'Tetapi|Tapi',
+    'but' => 'Tetapi',
   ),
-  'bg' =>
+  'bg' => 
   array (
     'name' => 'Bulgarian',
     'native' => 'български',
@@ -59,7 +59,7 @@
     'and' => 'И',
     'but' => 'Но',
   ),
-  'ca' =>
+  'ca' => 
   array (
     'name' => 'Catalan',
     'native' => 'català',
@@ -74,7 +74,7 @@
     'and' => 'I',
     'but' => 'Però',
   ),
-  'cy-GB' =>
+  'cy-GB' => 
   array (
     'name' => 'Welsh',
     'native' => 'Cymraeg',
@@ -89,7 +89,7 @@
     'and' => 'A',
     'but' => 'Ond',
   ),
-  'cs' =>
+  'cs' => 
   array (
     'name' => 'Czech',
     'native' => 'Česky',
@@ -98,13 +98,13 @@
     'scenario' => 'Scénář',
     'scenario_outline' => 'Náčrt Scénáře|Osnova scénáře',
     'examples' => 'Příklady',
-    'given' => 'Za předpokladu|Pokud',
+    'given' => 'Pokud|Za předpokladu',
     'when' => 'Když',
     'then' => 'Pak',
     'and' => 'A také|A',
     'but' => 'Ale',
   ),
-  'da' =>
+  'da' => 
   array (
     'name' => 'Danish',
     'native' => 'dansk',
@@ -119,7 +119,7 @@
     'and' => 'Og',
     'but' => 'Men',
   ),
-  'de' =>
+  'de' => 
   array (
     'name' => 'German',
     'native' => 'Deutsch',
@@ -128,28 +128,13 @@
     'scenario' => 'Szenario',
     'scenario_outline' => 'Szenariogrundriss',
     'examples' => 'Beispiele',
-    'given' => 'Gegeben seien|Gegeben sei|Angenommen',
+    'given' => 'Gegeben sei|Angenommen',
     'when' => 'Wenn',
     'then' => 'Dann',
     'and' => 'Und',
     'but' => 'Aber',
   ),
-  'el' =>
-  array (
-    'name' => 'Greek',
-    'native' => 'Ελληνικά',
-    'feature' => 'Δυνατότητα|Λειτουργία',
-    'background' => 'Υπόβαθρο',
-    'scenario' => 'Σενάριο',
-    'scenario_outline' => 'Περιγραφή Σεναρίου',
-    'examples' => 'Παραδείγματα|Σενάρια',
-    'given' => 'Δεδομένου ότι|Δεδομένου',
-    'when' => 'Όταν',
-    'then' => 'Τότε',
-    'and' => 'Και',
-    'but' => 'Αλλά',
-  ),
-  'en-au' =>
+  'en-au' => 
   array (
     'name' => 'Australian',
     'native' => 'Australian',
@@ -164,7 +149,7 @@
     'and' => 'Too right',
     'but' => 'Yeah nah',
   ),
-  'en-lol' =>
+  'en-lol' => 
   array (
     'name' => 'LOLCAT',
     'native' => 'LOLCAT',
@@ -179,7 +164,7 @@
     'and' => 'AN',
     'but' => 'BUT',
   ),
-  'en-pirate' =>
+  'en-pirate' => 
   array (
     'name' => 'Pirate',
     'native' => 'Pirate',
@@ -194,7 +179,7 @@
     'and' => 'Aye',
     'but' => 'Avast!',
   ),
-  'en-Scouse' =>
+  'en-Scouse' => 
   array (
     'name' => 'Scouse',
     'native' => 'Scouse',
@@ -203,13 +188,13 @@
     'scenario' => 'The thing of it is',
     'scenario_outline' => 'Wharrimean is',
     'examples' => 'Examples',
-    'given' => 'Youse know when youse got|Givun',
-    'when' => 'Youse know like when|Wun',
-    'then' => 'Den youse gotta|Dun',
+    'given' => 'Givun|Youse know when youse got',
+    'when' => 'Wun|Youse know like when',
+    'then' => 'Dun|Den youse gotta',
     'and' => 'An',
     'but' => 'Buh',
   ),
-  'en-tx' =>
+  'en-tx' => 
   array (
     'name' => 'Texan',
     'native' => 'Texan',
@@ -224,7 +209,7 @@
     'and' => 'And y\'all',
     'but' => 'But y\'all',
   ),
-  'eo' =>
+  'eo' => 
   array (
     'name' => 'Esperanto',
     'native' => 'Esperanto',
@@ -239,7 +224,7 @@
     'and' => 'Kaj',
     'but' => 'Sed',
   ),
-  'es' =>
+  'es' => 
   array (
     'name' => 'Spanish',
     'native' => 'español',
@@ -254,7 +239,7 @@
     'and' => 'Y',
     'but' => 'Pero',
   ),
-  'et' =>
+  'et' => 
   array (
     'name' => 'Estonian',
     'native' => 'eesti keel',
@@ -269,7 +254,7 @@
     'and' => 'Ja',
     'but' => 'Kuid',
   ),
-  'fa' =>
+  'fa' => 
   array (
     'name' => 'Persian',
     'native' => 'فارسی',
@@ -284,7 +269,7 @@
     'and' => 'و',
     'but' => 'اما',
   ),
-  'fi' =>
+  'fi' => 
   array (
     'name' => 'Finnish',
     'native' => 'suomi',
@@ -299,7 +284,7 @@
     'and' => 'Ja',
     'but' => 'Mutta',
   ),
-  'fr' =>
+  'fr' => 
   array (
     'name' => 'French',
     'native' => 'français',
@@ -308,28 +293,13 @@
     'scenario' => 'Scénario',
     'scenario_outline' => 'Plan du scénario|Plan du Scénario',
     'examples' => 'Exemples',
-    'given' => 'Etant données|Étant données|Etant donnée|Etant donnés|Étant donnée|Étant donnés|Etant donné|Étant donné|Soit',
+    'given' => 'Soit|Etant données|Étant données|Étant donnés|Etant donnée|Etant donnés|Étant donnée|Etant donné|Étant donné',
     'when' => 'Lorsqu\'<|Lorsque|Quand',
     'then' => 'Alors',
     'and' => 'Et',
     'but' => 'Mais',
   ),
-  'gl' =>
-  array (
-    'name' => 'Galician',
-    'native' => 'galego',
-    'background' => 'Contexto',
-    'feature' => 'Característica',
-    'scenario' => 'Escenario',
-    'scenario_outline' => 'Esbozo do escenario',
-    'examples' => 'Exemplos',
-    'given' => 'Dados|Dadas|Dada|Dado',
-    'when' => 'Cando',
-    'then' => 'Entón|Logo',
-    'and' => 'E',
-    'but' => 'Mais|Pero',
-  ),
-  'he' =>
+  'he' => 
   array (
     'name' => 'Hebrew',
     'native' => 'עברית',
@@ -344,7 +314,7 @@
     'and' => 'וגם',
     'but' => 'אבל',
   ),
-  'hi' =>
+  'hi' => 
   array (
     'name' => 'Hindi',
     'native' => 'हिंदी',
@@ -354,12 +324,12 @@
     'scenario_outline' => 'परिदृश्य रूपरेखा',
     'examples' => 'उदाहरण',
     'given' => 'चूंकि|यदि|अगर',
-    'when' => 'कदा|जब',
-    'then' => 'तदा|तब',
+    'when' => 'जब',
+    'then' => 'तब',
     'and' => 'तथा|और',
-    'but' => 'परन्तु|किन्तु|पर',
+    'but' => 'पर',
   ),
-  'hr' =>
+  'hr' => 
   array (
     'name' => 'Croatian',
     'native' => 'hrvatski',
@@ -374,7 +344,7 @@
     'and' => 'I',
     'but' => 'Ali',
   ),
-  'hu' =>
+  'hu' => 
   array (
     'name' => 'Hungarian',
     'native' => 'magyar',
@@ -383,13 +353,13 @@
     'scenario' => 'Forgatókönyv',
     'scenario_outline' => 'Forgatókönyv vázlat',
     'examples' => 'Példák',
-    'given' => 'Amennyiben|Adott',
+    'given' => 'Adott|Amennyiben',
     'when' => 'Amikor|Majd|Ha',
     'then' => 'Akkor',
     'and' => 'És',
     'but' => 'De',
   ),
-  'id' =>
+  'id' => 
   array (
     'name' => 'Indonesian',
     'native' => 'Bahasa Indonesia',
@@ -404,7 +374,7 @@
     'and' => 'Dan',
     'but' => 'Tapi',
   ),
-  'is' =>
+  'is' => 
   array (
     'name' => 'Icelandic',
     'native' => 'Íslenska',
@@ -419,7 +389,7 @@
     'and' => 'Og',
     'but' => 'En',
   ),
-  'it' =>
+  'it' => 
   array (
     'name' => 'Italian',
     'native' => 'italiano',
@@ -434,7 +404,7 @@
     'and' => 'E',
     'but' => 'Ma',
   ),
-  'ja' =>
+  'ja' => 
   array (
     'name' => 'Japanese',
     'native' => '日本語',
@@ -449,7 +419,7 @@
     'and' => 'かつ<',
     'but' => 'しかし<|ただし<|但し<',
   ),
-  'ko' =>
+  'ko' => 
   array (
     'name' => 'Korean',
     'native' => '한국어',
@@ -464,7 +434,7 @@
     'and' => '그리고<',
     'but' => '하지만<|단<',
   ),
-  'lt' =>
+  'lt' => 
   array (
     'name' => 'Lithuanian',
     'native' => 'lietuvių kalba',
@@ -479,7 +449,7 @@
     'and' => 'Ir',
     'but' => 'Bet',
   ),
-  'lu' =>
+  'lu' => 
   array (
     'name' => 'Luxemburgish',
     'native' => 'Lëtzebuergesch',
@@ -494,7 +464,7 @@
     'and' => 'an|a',
     'but' => 'awer|mä',
   ),
-  'lv' =>
+  'lv' => 
   array (
     'name' => 'Latvian',
     'native' => 'latviešu',
@@ -509,7 +479,7 @@
     'and' => 'Un',
     'but' => 'Bet',
   ),
-  'nl' =>
+  'nl' => 
   array (
     'name' => 'Dutch',
     'native' => 'Nederlands',
@@ -524,7 +494,7 @@
     'and' => 'En',
     'but' => 'Maar',
   ),
-  'no' =>
+  'no' => 
   array (
     'name' => 'Norwegian',
     'native' => 'norsk',
@@ -539,22 +509,7 @@
     'and' => 'Og',
     'but' => 'Men',
   ),
-  'pa' =>
-  array (
-    'name' => 'Panjabi',
-    'native' => 'ਪੰਜਾਬੀ',
-    'feature' => 'ਖਾਸੀਅਤ|ਮੁਹਾਂਦਰਾ|ਨਕਸ਼ ਨੁਹਾਰ',
-    'background' => 'ਪਿਛੋਕੜ',
-    'scenario' => 'ਪਟਕਥਾ',
-    'scenario_outline' => 'ਪਟਕਥਾ ਢਾਂਚਾ|ਪਟਕਥਾ ਰੂਪ ਰੇਖਾ',
-    'examples' => 'ਉਦਾਹਰਨਾਂ',
-    'given' => 'ਜਿਵੇਂ ਕਿ|ਜੇਕਰ',
-    'when' => 'ਜਦੋਂ',
-    'then' => 'ਤਦ',
-    'and' => 'ਅਤੇ',
-    'but' => 'ਪਰ',
-  ),
-  'pl' =>
+  'pl' => 
   array (
     'name' => 'Polish',
     'native' => 'polski',
@@ -563,13 +518,13 @@
     'scenario' => 'Scenariusz',
     'scenario_outline' => 'Szablon scenariusza',
     'examples' => 'Przykłady',
-    'given' => 'Zakładając|Mając',
+    'given' => 'Mając|Zakładając',
     'when' => 'Jeżeli|Jeśli|Kiedy|Gdy',
     'then' => 'Wtedy',
     'and' => 'Oraz|I',
     'but' => 'Ale',
   ),
-  'pt' =>
+  'pt' => 
   array (
     'name' => 'Portuguese',
     'native' => 'português',
@@ -584,7 +539,7 @@
     'and' => 'E',
     'but' => 'Mas',
   ),
-  'ro' =>
+  'ro' => 
   array (
     'name' => 'Romanian',
     'native' => 'română',
@@ -593,13 +548,13 @@
     'scenario' => 'Scenariu',
     'scenario_outline' => 'Structura scenariu|Structură scenariu',
     'examples' => 'Exemple',
-    'given' => 'Date fiind|Dati fiind|Dați fiind|Daţi fiind|Dat fiind',
+    'given' => 'Dat fiind|Date fiind|Dati fiind|Dați fiind|Daţi fiind',
     'when' => 'Cand|Când',
     'then' => 'Atunci',
     'and' => 'Si|Și|Şi',
     'but' => 'Dar',
   ),
-  'ru' =>
+  'ru' => 
   array (
     'name' => 'Russian',
     'native' => 'русский',
@@ -614,7 +569,7 @@
     'and' => 'К тому же|Также|И',
     'but' => 'Но|А',
   ),
-  'sv' =>
+  'sv' => 
   array (
     'name' => 'Swedish',
     'native' => 'Svenska',
@@ -629,7 +584,7 @@
     'and' => 'Och',
     'but' => 'Men',
   ),
-  'sk' =>
+  'sk' => 
   array (
     'name' => 'Slovak',
     'native' => 'Slovensky',
@@ -638,13 +593,13 @@
     'scenario' => 'Scenár',
     'scenario_outline' => 'Náčrt Scenáru|Náčrt Scenára|Osnova Scenára',
     'examples' => 'Príklady',
-    'given' => 'Za predpokladu|Pokiaľ',
+    'given' => 'Pokiaľ|Za predpokladu',
     'when' => 'Keď|Ak',
     'then' => 'Potom|Tak',
     'and' => 'A taktiež|A zároveň|A tiež|A',
     'but' => 'Ale',
   ),
-  'sr-Latn' =>
+  'sr-Latn' => 
   array (
     'name' => 'Serbian (Latin)',
     'native' => 'Srpski (Latinica)',
@@ -659,7 +614,7 @@
     'and' => 'I',
     'but' => 'Ali',
   ),
-  'sr-Cyrl' =>
+  'sr-Cyrl' => 
   array (
     'name' => 'Serbian',
     'native' => 'Српски',
@@ -674,7 +629,7 @@
     'and' => 'И',
     'but' => 'Али',
   ),
-  'tl' =>
+  'tl' => 
   array (
     'name' => 'Telugu',
     'native' => 'తెలుగు',
@@ -689,22 +644,7 @@
     'and' => 'మరియు',
     'but' => 'కాని',
   ),
-  'th' =>
-  array (
-    'name' => 'Thai',
-    'native' => 'ไทย',
-    'feature' => 'โครงหลัก|ความต้องการทางธุรกิจ|ความสามารถ',
-    'background' => 'แนวคิด',
-    'scenario' => 'เหตุการณ์',
-    'scenario_outline' => 'สรุปเหตุการณ์|โครงสร้างของเหตุการณ์',
-    'examples' => 'ชุดของตัวอย่าง|ชุดของเหตุการณ์',
-    'given' => 'กำหนดให้',
-    'when' => 'เมื่อ',
-    'then' => 'ดังนั้น',
-    'and' => 'และ',
-    'but' => 'แต่',
-  ),
-  'tr' =>
+  'tr' => 
   array (
     'name' => 'Turkish',
     'native' => 'Türkçe',
@@ -719,7 +659,7 @@
     'and' => 'Ve',
     'but' => 'Fakat|Ama',
   ),
-  'tt' =>
+  'tt' => 
   array (
     'name' => 'Tatar',
     'native' => 'Татарча',
@@ -734,7 +674,7 @@
     'and' => 'Һәм|Вә',
     'but' => 'Ләкин|Әмма',
   ),
-  'uk' =>
+  'uk' => 
   array (
     'name' => 'Ukrainian',
     'native' => 'Українська',
@@ -743,13 +683,13 @@
     'scenario' => 'Сценарій',
     'scenario_outline' => 'Структура сценарію',
     'examples' => 'Приклади',
-    'given' => 'Припустимо, що|Припустимо|Нехай|Дано',
+    'given' => 'Нехай|Дано|Припустимо, що|Припустимо',
     'when' => 'Якщо|Коли',
     'then' => 'Тоді|То',
     'and' => 'А також|Та|І',
     'but' => 'Але',
   ),
-  'uz' =>
+  'uz' => 
   array (
     'name' => 'Uzbek',
     'native' => 'Узбекча',
@@ -764,7 +704,7 @@
     'and' => 'Ва',
     'but' => 'Лекин|Бирок|Аммо',
   ),
-  'vi' =>
+  'vi' => 
   array (
     'name' => 'Vietnamese',
     'native' => 'Tiếng Việt',
@@ -779,7 +719,7 @@
     'and' => 'Và',
     'but' => 'Nhưng',
   ),
-  'zh-CN' =>
+  'zh-CN' => 
   array (
     'name' => 'Chinese simplified',
     'native' => '简体中文',
@@ -794,7 +734,7 @@
     'and' => '而且<|并且<|同时<',
     'but' => '但是<',
   ),
-  'zh-TW' =>
+  'zh-TW' => 
   array (
     'name' => 'Chinese traditional',
     'native' => '繁體中文',
