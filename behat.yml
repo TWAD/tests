@@ -16,7 +16,7 @@ default:
 #      base_url: 'http://192.168.14.225/demo_master/web/'
 #      default_session: selenium2
       default_session: sahi
-      browser_name: 'firefox'
+      browser_name: 'chrome'
 #      selenium2: ~
       sahi: ~
       #goutte: ~

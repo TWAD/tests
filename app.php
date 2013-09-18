@@ -5,10 +5,12 @@ $app=new \Silex\Application(array('debug'=>true));
 
 
 $app->get('',function(){
+
+	return file_get_contents('index.tpl.html');
 	return 'welcome';	
 });
 
-$app->get('/hello/{name}',function($name){
+$app->get('/hello/{name}',function($name){ 
 	return 'hello '.$name;
 });
 
