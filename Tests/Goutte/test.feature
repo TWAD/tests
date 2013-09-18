@@ -15,9 +15,10 @@ Scenario: cette div doit afficher 'Javascript dit hello world'
 Scenario: en remplissant le formulaire ci dessus cette div doit afficher "hello {le nom qui a été entrée}"
 		Given I should see an "#name" element
 		And I fill in "name" with "maurice"
-		And I should see an "#click-me" element
-		Then I press "OK"
-		And I should see "hello maurice"
+		And I press "OK"
+		Then I should see "hello maurice"
+		And I debug
+		And I wait "5"
 		
 @test_3
 Scenario:
