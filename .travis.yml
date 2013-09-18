@@ -3,13 +3,14 @@ php:
     - 5.4
 before_install:
         - sudo apt-get update
-#
+
         - sudo apt-get install apache2
         - sudo apt-get install libapache2-mod-php5
         - sudo apt-get install firefox
+
 #        - firefox -v
-        - composer install --dev --prefer-source
-        - composer update
+#        - composer install --dev --prefer-source
+#        - composer update
         - chmod +x bin/behat
         - sudo chmod 777 /var/www
         - cp -r /home/travis/build/TWAD/tests /var/www/TEST
@@ -43,7 +44,7 @@ before_install:
         # - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
         # - sleep 5
 script: 
-        - bin/behat Tests/Goutte/test.feature
+        - bin/behat Tests/Goutte/test.feature --tags "js" -f progress
 #        - vendor/bin/phpunit
 email:
     recipients:
