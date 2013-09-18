@@ -12,7 +12,7 @@ before_install:
 #        - firefox -v ##pour consulter la version de firefox
 ###### installation des dépendances
 #        - composer install --dev --prefer-source  
-#        - composer update  #pour installation des dépendances
+        - composer update  #pour installation des dépendances
 ###### config du serveur et behat.yml
         - echo "Alias /behat $(pwd)/web" | sudo tee -a /etc/apache2/sites-available/default
 # sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default

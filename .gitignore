@@ -2,6 +2,7 @@ vendor_bakup/*
 vendor.tar.gz
 vendor_maurice&co/*
 behat.yml
+vendor
 
 # temporary files
 *~
