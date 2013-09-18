@@ -44,7 +44,7 @@ before_install:
         # - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
         # - sleep 5
 script: 
-        - bin/behat Tests/Goutte/test.feature --tags "js" -f progress
+        - bin/behat Tests/Goutte/test.feature --tags "test_3" -f progress
 #        - vendor/bin/phpunit
 email:
     recipients:
