@@ -43,7 +43,7 @@ class FeatureContext extends MinkContext
      * @Given /^I debug$/
      */
     public function iDebug(){
-			$txt=$this->getSession()->getPage()->find('css','body')->getText();
+			$txt=$this->getSession()->getPage()->find('css','body')->getHtml();
 			echo PHP_EOL,"CONTENU DE LA PAGE=",$txt,PHP_EOL;
 	 }
 }

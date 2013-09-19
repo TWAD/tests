@@ -6,6 +6,14 @@ Feature: testing link a row in Restaurant to an itinerary
 Background:
         Given I am on "welcome"
 		
+@test_simple
+Scenario: cette page doit afficher le nom rensigné
+		Given I go to "fill"
+		And I fill in "name" with "toto"
+		And I press "GO"
+		And I debug
+		Then I should see "toto"	
+
 @test_1 @js
 Scenario: cette div doit afficher 'Javascript dit hello world'
 		Given I should see "Javascript dit hello world"
