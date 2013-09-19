@@ -4,7 +4,7 @@ Feature: testing link a row in Restaurant to an itinerary
     I need to be able to find an itinerary and link to it
 
 Background:
-        #Given I am on "welcome"
+        Given I am on "welcome"
 		
 @test_simple
 Scenario: cette page doit afficher le nom rensigné
@@ -22,6 +22,7 @@ Scenario: cette div doit afficher 'Javascript dit hello world'
 		
 @test_2 @js
 Scenario: en remplissant le formulaire ci dessus cette div doit afficher "hello {le nom qui a été entrée}"
+		Given I go to "fill"
 		Given I should see an "#name" element
 		And I fill in "name" with "maurice"
 		And I press "OK"
