@@ -31,7 +31,7 @@ $app->match('fill',function(\Symfony\Component\HttpFoundation\Request $request){
 
 	}
 
-	return '<form method="post" ><input type="text" name="name"><button type="text" >GO</button></form>';
+	return '<form method="post" ><input type="text" name="name"/><button type="text" >GO</button></form>';
 
 });
 

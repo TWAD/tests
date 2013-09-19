@@ -4,12 +4,13 @@ Feature: testing link a row in Restaurant to an itinerary
     I need to be able to find an itinerary and link to it
 
 Background:
-        Given I am on "welcome"
+        #Given I am on "welcome"
 		
 @test_simple
 Scenario: cette page doit afficher le nom rensigné
 		Given I go to "fill"
-		And I fill in "name" with "toto"
+		#And I fill in "name" with "toto"
+		And I fill in "toto" for "name"
 		And I press "GO"
 		And I debug
 		Then I should see "toto"	
