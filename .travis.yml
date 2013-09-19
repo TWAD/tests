@@ -50,7 +50,7 @@ before_install:
 
 ### cette section est celle qui va lancer les tests
 script: 
-        - bin/behat Tests/Behat --tags "test_simple" -f progress
+        - bin/behat Tests/Behat --tags "test_simple"
 #        - vendor/bin/phpunit
 
 ####### section des notifications

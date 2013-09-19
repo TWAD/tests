@@ -13,6 +13,7 @@ Scenario: cette page doit afficher le nom rensigné
 		And I fill in "toto" for "name"
 		And I press "GO"
 		And I debug
+		Then I should see "you filled the form with"
 		Then I should see "toto"	
 
 @test_1 @js
