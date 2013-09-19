@@ -6,7 +6,7 @@ Feature: testing link a row in Restaurant to an itinerary
 Background:
         Given I am on "welcome"
 		
-@test_simple
+@test_simple @sahi
 Scenario: cette page doit afficher le nom rensigné
 		Given I go to "fill"
 		#And I fill in "name" with "toto"
@@ -16,6 +16,14 @@ Scenario: cette page doit afficher le nom rensigné
 		Then I should see "you filled the form with"
 		Then I should see "toto"	
 
+@sahi
+Scenario: test php de base avec sahi
+		Given I go to "form.php"
+		And I should see "Merci"
+		And I fill "MOMO" for "name"
+		And I press "GO"
+		Then I should see "Welcome MOMO"
+		
 @test_1 @js
 Scenario: cette div doit afficher 'Javascript dit hello world'
 		Given I should see "Javascript dit hello world"
