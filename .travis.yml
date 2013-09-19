@@ -35,16 +35,16 @@ before_install:
         - export DISPLAY=:99.0
         - sleep 4
 ###### ajout de selénium et lancement
-        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
-        - java -jar "selenium-server-standalone-2.35.0.jar" &
-        - sleep 5
+#        - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+#        - java -jar "selenium-server-standalone-2.35.0.jar" &
+#        - sleep 5
 ###### ajout de sahi et lancement
-#        - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
-#        - unzip sahi.zip > /dev/null
-#        - cd sahi/bin
-#        - sh sahi.sh > /dev/null &
-#        - cd -
-#        - sleep 4
+        - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
+        - unzip sahi.zip > /dev/null
+        - cd sahi/bin
+        - sh sahi.sh > /dev/null &
+        - cd -
+        - sleep 4
 ####### pour débugage
         - pwd
 
