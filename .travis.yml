@@ -39,7 +39,7 @@ before_install:
 #        - java -jar "selenium-server-standalone-2.35.0.jar" &
 #        - sleep 5
 ###### ajout de sahi et lancement
-        - curl http://garr.dl.sourceforge.net/project/sahi/sahi-v43/20130206/sahi_20130206.zip > sahi.zip
+        - curl http://sourceforge.net/projects/sahi/files/sahi-v44/sahi_20130429.zip > sahi.zip
         - unzip sahi.zip > /dev/null
         - cd sahi/bin
         - sh sahi.sh > /dev/null &
