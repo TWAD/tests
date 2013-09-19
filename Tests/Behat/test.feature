@@ -20,8 +20,8 @@ Scenario: cette page doit afficher le nom rensigné
 Scenario: test php de base avec sahi
 		Given I go to "form.php"
 		And I should see "Merci"
-		And I fill "MOMO" for "name"
-		And I press "GO"
+		And I fill in "MOMO" for "name"
+		And I press "Valider"
 		Then I should see "Welcome MOMO"
 		
 @test_1 @js
