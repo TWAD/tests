@@ -14,7 +14,7 @@ use Behat\MinkExtension\Context\MinkContext;
 //   require_once 'PHPUnit/Autoload.php';
 //   require_once 'PHPUnit/Framework/Assert/Functions.php';
 //
-echo PHP_EOL,'--------------------fichier Tests/bootsrap/feature context '.__DIR__.' '.__FILE__.PHP_EOL;
+echo PHP_EOL,'------ src/featureContext fichier '.__FILE__.PHP_EOL;
 /**
  * Features context.
  */
@@ -43,7 +43,7 @@ class FeatureContext extends MinkContext
      * @Given /^I debug$/
      */
     public function iDebug(){
-			$txt=$this->getSession()->getPage()->getText();
+			$txt=$this->getSession()->getPage()->find('css','body')->getText();
 			echo PHP_EOL,"CONTENU DE LA PAGE=",$txt,PHP_EOL;
 	 }
 }

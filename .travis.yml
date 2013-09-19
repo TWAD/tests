@@ -48,8 +48,8 @@ before_install:
 
 ### cette section est celle qui va lancer les tests
 script: 
-        - bin/behat Tests/Goutte/test.feature --tags "test_3" -f progress
-#        - vendor/bin/phpunit
+        - bin/behat Tests/Behat
+        - vendor/bin/phpunit
 
 ####### section des notifications
 email:
