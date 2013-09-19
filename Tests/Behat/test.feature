@@ -6,7 +6,7 @@ Feature: testing link a row in Restaurant to an itinerary
 Background:
         Given I am on "welcome"
 		
-@test_simple @sahi
+@test_simple
 Scenario: cette page doit afficher le nom rensigné
 		Given I go to "fill"
 		#And I fill in "name" with "toto"

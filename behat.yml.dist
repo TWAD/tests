@@ -4,7 +4,7 @@ default:
 #    Behat\Symfony2Extension\Extension: ~
 #       mink_driver: true
     Behat\MinkExtension\Extension:
-      base_url: http://%hostname%/index.php
+      base_url: http://%hostname%/
       default_session: sahi
       browser_name: firefox
       sahi: ~
